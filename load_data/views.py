@@ -9,8 +9,8 @@ import requests
 
 # Create your views here.
 
-def send_data(request):
-    return render(request, 'show_data.html')
+# def send_data(request):
+#     return render(request, 'show_data.html')
 
 
 def show_data(request):
@@ -25,7 +25,7 @@ def search_data(request):
     r = set_up()
     stock_list = []
     stock_dict = {}
-    response = HttpResponse(content_type='text/csv')
+
     if request.method == 'POST':
         searched_data = request.POST.get('search')
         try:
@@ -34,12 +34,6 @@ def search_data(request):
                 stock_list.append(r.hgetall(equity))
                 stock_dict[searched_data] = r.hgetall(equity)
 
-            # stock_list = []
-            # for key in keys:
-            #     data = r.hgetall(key)
-            #
-            #     stock_list.append(data)
-            # print(stock_list)
         except Exception as e:
             "Something went wrong"
     return JsonResponse({'data': stock_list})

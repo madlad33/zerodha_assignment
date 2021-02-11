@@ -1,1 +1,1 @@
-web: gunicorn uniacco_rest.wsgi
+web: gunicorn zerodha_assignment.wsgi
