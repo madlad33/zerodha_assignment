@@ -25,7 +25,7 @@ lazy-object-proxy==1.4.3
 
 mccabe==0.6.1
 numpy==1.9.2
-pandas==1.2.1
+pandas==1.1.5
 
 Protego==0.1.16
 
