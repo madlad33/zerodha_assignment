@@ -25,12 +25,14 @@ def parse_csv():
 
 def set_up():
     try:
-        r = redis.Redis(host="localhost",
-                        port=6379,
-                        charset="utf-8",
-                        decode_responses=True,
-                        db=2)
+        # r = redis.Redis(host="localhost",
+        #                 port=6379,
+        #                 charset="utf-8",
+        #                 decode_responses=True,
+        #                 db=2)
+        r = redis.from_url('redis://redistogo:1b13278a02908ee0fed6c0102e4d7cd7@scat.redistogo.com:11191/',db=1)
         return r
+
     except Exception:
         return "Couldn't connect to redis database."
 
