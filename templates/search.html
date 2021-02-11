@@ -1,0 +1,8 @@
+
+{{ json_data|json_script:"stock_list" }}
+<div id="app">
+   <div stock="{{ stock_list }}"></div>
+{{ response }}
+</div>
+
+
