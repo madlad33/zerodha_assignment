@@ -11,7 +11,7 @@ from get_zip.get_zip.spiders.bhavcopy import BhavcopySpider
 from get_zip.localfolder.extract import run_spider,convert_zip
 sys.path.append("..")
 from get_zip.localfolder.extract import get_file_name, get_file_name_csv
-
+import os
 
 def parse_csv():
     file_path = f'L:\Django projects\zerodha_assignment\get_zip\localfolder\{get_file_name_csv()}'
@@ -30,7 +30,7 @@ def set_up():
         #                 charset="utf-8",
         #                 decode_responses=True,
         #                 db=2)
-        r = redis.from_url('redis://redistogo:1b13278a02908ee0fed6c0102e4d7cd7@scat.redistogo.com:11191/',db=1)
+        r = redis.from_url(os.environ.get('REDIS_URL'),db=1)
         return r
 
     except Exception:
